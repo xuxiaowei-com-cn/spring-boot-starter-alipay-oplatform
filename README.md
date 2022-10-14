@@ -176,7 +176,9 @@ git remote add gitlink https://gitlink.org.cn/xuxiaowei-com-cn/spring-boot-start
 
 ## 参考文档
 
-- [实现登录第三方网站](https://open.alipay-oplatform.com/document/orgapp-server/tutorial-obtaining-user-personal-information)
+- [基本术语](https://opendocs.alipay.com/open/03ldot)
+- [支付宝扫码登录](https://help.aliyun.com/document_detail/160413.html)
+- [alipay.open.auth.token.app(换取应用授权令牌)](https://opendocs.alipay.com/isv/04h3uf)
 
 ## 鸣谢
 
