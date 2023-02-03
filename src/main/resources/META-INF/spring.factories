@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.springframework.security.oauth2.server.authorization.http.AlipayOplatformWebsiteAuthorizeHttpFilter,\
+  org.springframework.security.oauth2.server.authorization.http.AlipayOplatformWebsiteCodeHttpFilter,\
+  org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AlipayOplatformWebsiteConfiguration,\
+  org.springframework.security.oauth2.server.authorization.properties.AlipayOplatformWebsiteProperties
