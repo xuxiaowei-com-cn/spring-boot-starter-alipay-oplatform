@@ -28,25 +28,25 @@ import org.springframework.security.oauth2.core.OAuth2Error;
  * @author xuxiaowei
  * @since 0.0.1
  */
-public class RedirectUriAlipayOplatformException extends AlipayOplatformException {
+public class RedirectUriAlipayOplatformWebsiteException extends AlipayOplatformWebsiteException {
 
-	public RedirectUriAlipayOplatformException(String errorCode) {
+	public RedirectUriAlipayOplatformWebsiteException(String errorCode) {
 		super(errorCode);
 	}
 
-	public RedirectUriAlipayOplatformException(OAuth2Error error) {
+	public RedirectUriAlipayOplatformWebsiteException(OAuth2Error error) {
 		super(error);
 	}
 
-	public RedirectUriAlipayOplatformException(OAuth2Error error, Throwable cause) {
+	public RedirectUriAlipayOplatformWebsiteException(OAuth2Error error, Throwable cause) {
 		super(error, cause);
 	}
 
-	public RedirectUriAlipayOplatformException(OAuth2Error error, String message) {
+	public RedirectUriAlipayOplatformWebsiteException(OAuth2Error error, String message) {
 		super(error, message);
 	}
 
-	public RedirectUriAlipayOplatformException(OAuth2Error error, String message, Throwable cause) {
+	public RedirectUriAlipayOplatformWebsiteException(OAuth2Error error, String message, Throwable cause) {
 		super(error, message, cause);
 	}
 

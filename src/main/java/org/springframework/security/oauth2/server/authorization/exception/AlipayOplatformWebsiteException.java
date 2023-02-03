@@ -20,34 +20,40 @@ package org.springframework.security.oauth2.server.authorization.exception;
  * #L%
  */
 
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2Error;
 
 /**
- * 支付宝 AppID 异常
+ * 支付宝父异常
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
-public class AppidAlipayOplatformException extends AlipayOplatformException {
+public class AlipayOplatformWebsiteException extends OAuth2AuthenticationException {
 
-	public AppidAlipayOplatformException(String errorCode) {
+	public AlipayOplatformWebsiteException(String errorCode) {
 		super(errorCode);
 	}
 
-	public AppidAlipayOplatformException(OAuth2Error error) {
+	public AlipayOplatformWebsiteException(OAuth2Error error) {
 		super(error);
 	}
 
-	public AppidAlipayOplatformException(OAuth2Error error, Throwable cause) {
+	public AlipayOplatformWebsiteException(OAuth2Error error, Throwable cause) {
 		super(error, cause);
 	}
 
-	public AppidAlipayOplatformException(OAuth2Error error, String message) {
+	public AlipayOplatformWebsiteException(OAuth2Error error, String message) {
 		super(error, message);
 	}
 
-	public AppidAlipayOplatformException(OAuth2Error error, String message, Throwable cause) {
+	public AlipayOplatformWebsiteException(OAuth2Error error, String message, Throwable cause) {
 		super(error, message, cause);
+	}
+
+	@Override
+	public OAuth2Error getError() {
+		return super.getError();
 	}
 
 }

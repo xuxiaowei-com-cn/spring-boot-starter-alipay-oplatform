@@ -91,7 +91,7 @@ public class AlipayOplatformWebsiteCodeHttpFilter extends HttpFilter {
 			log.info("requestUri：{}", requestUri);
 
 			String appid = requestUri.replace(prefixUrl + "/", "");
-			String code = request.getParameter(OAuth2AlipayOplatformParameterNames.AUTH_CODE);
+			String code = request.getParameter(OAuth2AlipayOplatformWebsiteParameterNames.AUTH_CODE);
 			String state = request.getParameter(OAuth2ParameterNames.STATE);
 			String grantType = ALIPAY_OPLATFORM_WEBSITE.getValue();
 
@@ -115,15 +115,15 @@ public class AlipayOplatformWebsiteCodeHttpFilter extends HttpFilter {
 
 			Map<String, String> uriVariables = new HashMap<>(8);
 			uriVariables.put(OAuth2ParameterNames.GRANT_TYPE, grantType);
-			uriVariables.put(OAuth2AlipayOplatformParameterNames.APPID, appid);
+			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.APPID, appid);
 			uriVariables.put(OAuth2ParameterNames.CODE, code);
 			uriVariables.put(OAuth2ParameterNames.STATE, state);
 			uriVariables.put(OAuth2ParameterNames.SCOPE, scope);
 			uriVariables.put(OAuth2ParameterNames.CLIENT_ID, clientId);
 			uriVariables.put(OAuth2ParameterNames.CLIENT_SECRET, clientSecret);
-			uriVariables.put(OAuth2AlipayOplatformParameterNames.REMOTE_ADDRESS, remoteHost);
-			uriVariables.put(OAuth2AlipayOplatformParameterNames.SESSION_ID, session == null ? "" : session.getId());
-			uriVariables.put(OAuth2AlipayOplatformParameterNames.BINDING, binding);
+			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.REMOTE_ADDRESS, remoteHost);
+			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.SESSION_ID, session == null ? "" : session.getId());
+			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.BINDING, binding);
 
 			OAuth2AccessTokenResponse oauth2AccessTokenResponse = alipayOplatformWebsiteService
 					.getOAuth2AccessTokenResponse(request, response, tokenUrlPrefix, TOKEN_URL, uriVariables);

@@ -28,7 +28,7 @@ package org.springframework.security.oauth2.core.endpoint;
  * @see OAuth2ParameterNames 在 OAuth 参数注册表中定义并由授权端点、令牌端点和令牌撤销端点使用的标准和自定义（非标准）参数名称。
  */
 @SuppressWarnings("AlibabaClassNamingShouldBeCamel")
-public interface OAuth2AlipayOplatformParameterNames {
+public interface OAuth2AlipayOplatformWebsiteParameterNames {
 
 	/**
 	 * AppID
