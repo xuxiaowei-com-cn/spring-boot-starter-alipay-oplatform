@@ -122,7 +122,8 @@ public class AlipayOplatformWebsiteCodeHttpFilter extends HttpFilter {
 			uriVariables.put(OAuth2ParameterNames.CLIENT_ID, clientId);
 			uriVariables.put(OAuth2ParameterNames.CLIENT_SECRET, clientSecret);
 			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.REMOTE_ADDRESS, remoteHost);
-			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.SESSION_ID, session == null ? "" : session.getId());
+			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.SESSION_ID,
+					session == null ? "" : session.getId());
 			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.BINDING, binding);
 
 			OAuth2AccessTokenResponse oauth2AccessTokenResponse = alipayOplatformWebsiteService
