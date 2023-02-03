@@ -29,7 +29,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.oauth2.core.endpoint.OAuth2AlipayOplatformParameterNames;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AlipayOplatformWebsiteParameterNames;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.server.authorization.client.AlipayOplatformWebsiteService;
 import org.springframework.security.oauth2.server.authorization.properties.AlipayOplatformWebsiteProperties;
@@ -89,7 +89,7 @@ public class AlipayOplatformWebsiteAuthorizeHttpFilter extends HttpFilter {
 
 			String redirectUri = alipayOplatformWebsiteService.getRedirectUriByAppid(appid);
 
-			String binding = request.getParameter(OAuth2AlipayOplatformParameterNames.BINDING);
+			String binding = request.getParameter(OAuth2AlipayOplatformWebsiteParameterNames.BINDING);
 			String scope = request.getParameter(OAuth2ParameterNames.SCOPE);
 			if (!AUTH_USER.equals(scope)) {
 				scope = AUTH_USER;

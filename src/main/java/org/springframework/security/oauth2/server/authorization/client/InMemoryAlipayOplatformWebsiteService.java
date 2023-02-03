@@ -48,9 +48,9 @@ import org.springframework.security.oauth2.core.endpoint.OAuth2AccessTokenRespon
 import org.springframework.security.oauth2.core.http.converter.OAuth2AccessTokenResponseHttpMessageConverter;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2TokenEndpointConfigurer;
-import org.springframework.security.oauth2.server.authorization.exception.AppidAlipayOplatformException;
-import org.springframework.security.oauth2.server.authorization.exception.RedirectAlipayOplatformException;
-import org.springframework.security.oauth2.server.authorization.exception.RedirectUriAlipayOplatformException;
+import org.springframework.security.oauth2.server.authorization.exception.AppidAlipayOplatformWebsiteException;
+import org.springframework.security.oauth2.server.authorization.exception.RedirectAlipayOplatformWebsiteException;
+import org.springframework.security.oauth2.server.authorization.exception.RedirectUriAlipayOplatformWebsiteException;
 import org.springframework.security.oauth2.server.authorization.properties.AlipayOplatformWebsiteProperties;
 import org.springframework.security.oauth2.server.authorization.web.authentication.OAuth2AlipayOplatformWebsiteEndpointUtils;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -103,7 +103,7 @@ public class InMemoryAlipayOplatformWebsiteService implements AlipayOplatformWeb
 		else {
 			OAuth2Error error = new OAuth2Error(OAuth2AlipayOplatformWebsiteEndpointUtils.ERROR_CODE, "重定向地址前缀不能为空",
 					null);
-			throw new RedirectUriAlipayOplatformException(error);
+			throw new RedirectUriAlipayOplatformWebsiteException(error);
 		}
 	}
 
@@ -193,7 +193,7 @@ public class InMemoryAlipayOplatformWebsiteService implements AlipayOplatformWeb
 		if (list == null) {
 			OAuth2Error error = new OAuth2Error(OAuth2AlipayOplatformWebsiteEndpointUtils.ERROR_CODE, "appid 未配置",
 					null);
-			throw new AppidAlipayOplatformException(error);
+			throw new AppidAlipayOplatformWebsiteException(error);
 		}
 
 		for (AlipayOplatformWebsiteProperties.AlipayOplatformWebsite alipayOplatformWebsite : list) {
@@ -202,7 +202,7 @@ public class InMemoryAlipayOplatformWebsiteService implements AlipayOplatformWeb
 			}
 		}
 		OAuth2Error error = new OAuth2Error(OAuth2AlipayOplatformWebsiteEndpointUtils.ERROR_CODE, "未匹配到 appid", null);
-		throw new AppidAlipayOplatformException(error);
+		throw new AppidAlipayOplatformWebsiteException(error);
 	}
 
 	/**
@@ -374,7 +374,7 @@ public class InMemoryAlipayOplatformWebsiteService implements AlipayOplatformWeb
 		catch (IOException e) {
 			OAuth2Error error = new OAuth2Error(OAuth2AlipayOplatformWebsiteEndpointUtils.ERROR_CODE, "支付宝 网站应用重定向异常",
 					null);
-			throw new RedirectAlipayOplatformException(error, e);
+			throw new RedirectAlipayOplatformWebsiteException(error, e);
 		}
 
 	}

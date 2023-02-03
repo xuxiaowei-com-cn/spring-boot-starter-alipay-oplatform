@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
-import org.springframework.security.oauth2.core.endpoint.OAuth2AlipayOplatformParameterNames;
+import org.springframework.security.oauth2.core.endpoint.OAuth2AlipayOplatformWebsiteParameterNames;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AlipayOplatformWebsiteAuthenticationToken;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeAuthenticationToken;
@@ -74,10 +74,12 @@ public class OAuth2AlipayOplatformWebsiteAuthenticationConverter implements Auth
 		}
 
 		// appid (REQUIRED)
-		String appid = parameters.getFirst(OAuth2AlipayOplatformParameterNames.APPID);
+		String appid = parameters.getFirst(OAuth2AlipayOplatformWebsiteParameterNames.APPID);
 
-		if (!StringUtils.hasText(appid) || parameters.get(OAuth2AlipayOplatformParameterNames.APPID).size() != 1) {
-			OAuth2EndpointUtils.throwError(OAuth2ErrorCodes.INVALID_REQUEST, OAuth2AlipayOplatformParameterNames.APPID,
+		if (!StringUtils.hasText(appid)
+				|| parameters.get(OAuth2AlipayOplatformWebsiteParameterNames.APPID).size() != 1) {
+			OAuth2EndpointUtils.throwError(OAuth2ErrorCodes.INVALID_REQUEST,
+					OAuth2AlipayOplatformWebsiteParameterNames.APPID,
 					OAuth2AlipayOplatformWebsiteEndpointUtils.AUTH_CODE2SESSION_URI);
 		}
 
@@ -87,23 +89,24 @@ public class OAuth2AlipayOplatformWebsiteAuthenticationConverter implements Auth
 		String state = parameters.getFirst(OAuth2ParameterNames.STATE);
 
 		// 是否绑定，需要使用者自己去拓展
-		String binding = request.getParameter(OAuth2AlipayOplatformParameterNames.BINDING);
+		String binding = request.getParameter(OAuth2AlipayOplatformWebsiteParameterNames.BINDING);
 
 		Map<String, Object> additionalParameters = new HashMap<>(4);
 		parameters.forEach((key, value) -> {
 			if (!key.equals(OAuth2ParameterNames.GRANT_TYPE) && !key.equals(OAuth2ParameterNames.CLIENT_ID)
 					&& !key.equals(OAuth2ParameterNames.CODE) && !key.equals(OAuth2ParameterNames.REDIRECT_URI)
 					&& !key.equals(OAuth2ParameterNames.CLIENT_SECRET)
-					&& !key.equals(OAuth2AlipayOplatformParameterNames.APPID) && !key.equals(OAuth2ParameterNames.SCOPE)
-					&& !OAuth2AlipayOplatformParameterNames.REMOTE_ADDRESS.equals(key)
-					&& !OAuth2AlipayOplatformParameterNames.SESSION_ID.equals(key)
-					&& !OAuth2AlipayOplatformParameterNames.BINDING.equals(key)) {
+					&& !key.equals(OAuth2AlipayOplatformWebsiteParameterNames.APPID)
+					&& !key.equals(OAuth2ParameterNames.SCOPE)
+					&& !OAuth2AlipayOplatformWebsiteParameterNames.REMOTE_ADDRESS.equals(key)
+					&& !OAuth2AlipayOplatformWebsiteParameterNames.SESSION_ID.equals(key)
+					&& !OAuth2AlipayOplatformWebsiteParameterNames.BINDING.equals(key)) {
 				additionalParameters.put(key, value.get(0));
 			}
 		});
 
-		String remoteAddress = request.getParameter(OAuth2AlipayOplatformParameterNames.REMOTE_ADDRESS);
-		String sessionId = request.getParameter(OAuth2AlipayOplatformParameterNames.SESSION_ID);
+		String remoteAddress = request.getParameter(OAuth2AlipayOplatformWebsiteParameterNames.REMOTE_ADDRESS);
+		String sessionId = request.getParameter(OAuth2AlipayOplatformWebsiteParameterNames.SESSION_ID);
 
 		return new OAuth2AlipayOplatformWebsiteAuthenticationToken(clientPrincipal, additionalParameters, appid, code,
 				scope, remoteAddress, sessionId, state, binding);

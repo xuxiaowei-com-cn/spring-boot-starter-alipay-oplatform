@@ -23,30 +23,30 @@ package org.springframework.security.oauth2.server.authorization.exception;
 import org.springframework.security.oauth2.core.OAuth2Error;
 
 /**
- * 支付宝 Secret 异常
+ * 重定向 异常
  *
  * @author xuxiaowei
  * @since 0.0.1
  */
-public class SecretAlipayOplatformException extends AlipayOplatformException {
+public class RedirectAlipayOplatformWebsiteException extends AlipayOplatformWebsiteException {
 
-	public SecretAlipayOplatformException(String errorCode) {
+	public RedirectAlipayOplatformWebsiteException(String errorCode) {
 		super(errorCode);
 	}
 
-	public SecretAlipayOplatformException(OAuth2Error error) {
+	public RedirectAlipayOplatformWebsiteException(OAuth2Error error) {
 		super(error);
 	}
 
-	public SecretAlipayOplatformException(OAuth2Error error, Throwable cause) {
+	public RedirectAlipayOplatformWebsiteException(OAuth2Error error, Throwable cause) {
 		super(error, cause);
 	}
 
-	public SecretAlipayOplatformException(OAuth2Error error, String message) {
+	public RedirectAlipayOplatformWebsiteException(OAuth2Error error, String message) {
 		super(error, message);
 	}
 
-	public SecretAlipayOplatformException(OAuth2Error error, String message, Throwable cause) {
+	public RedirectAlipayOplatformWebsiteException(OAuth2Error error, String message, Throwable cause) {
 		super(error, message, cause);
 	}
 
