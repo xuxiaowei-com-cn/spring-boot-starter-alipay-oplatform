@@ -48,13 +48,13 @@ public class OAuth2AlipayOplatformWebsiteConfigurerUtils {
 
 	public static AlipayOplatformWebsiteService getAlipayOplatformWebsiteService(HttpSecurity httpSecurity) {
 		AlipayOplatformWebsiteService alipayOplatformWebsiteService = httpSecurity
-				.getSharedObject(AlipayOplatformWebsiteService.class);
+			.getSharedObject(AlipayOplatformWebsiteService.class);
 		if (alipayOplatformWebsiteService == null) {
 			alipayOplatformWebsiteService = OAuth2ConfigurerUtils.getOptionalBean(httpSecurity,
 					AlipayOplatformWebsiteService.class);
 			if (alipayOplatformWebsiteService == null) {
 				AlipayOplatformWebsiteProperties alipayOplatformWebsiteProperties = OAuth2ConfigurerUtils
-						.getOptionalBean(httpSecurity, AlipayOplatformWebsiteProperties.class);
+					.getOptionalBean(httpSecurity, AlipayOplatformWebsiteProperties.class);
 				alipayOplatformWebsiteService = new InMemoryAlipayOplatformWebsiteService(
 						alipayOplatformWebsiteProperties);
 			}
