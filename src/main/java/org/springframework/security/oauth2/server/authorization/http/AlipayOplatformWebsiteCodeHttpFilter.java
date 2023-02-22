@@ -103,7 +103,7 @@ public class AlipayOplatformWebsiteCodeHttpFilter extends HttpFilter {
 			String binding = alipayOplatformWebsiteService.getBinding(request, response, appid, code, state);
 
 			AlipayOplatformWebsiteProperties.AlipayOplatformWebsite oplatformWebsite = alipayOplatformWebsiteService
-					.getAlipayOplatformWebsiteByAppid(appid);
+				.getAlipayOplatformWebsiteByAppid(appid);
 
 			String clientId = oplatformWebsite.getClientId();
 			String clientSecret = oplatformWebsite.getClientSecret();
@@ -127,7 +127,7 @@ public class AlipayOplatformWebsiteCodeHttpFilter extends HttpFilter {
 			uriVariables.put(OAuth2AlipayOplatformWebsiteParameterNames.BINDING, binding);
 
 			OAuth2AccessTokenResponse oauth2AccessTokenResponse = alipayOplatformWebsiteService
-					.getOAuth2AccessTokenResponse(request, response, tokenUrlPrefix, TOKEN_URL, uriVariables);
+				.getOAuth2AccessTokenResponse(request, response, tokenUrlPrefix, TOKEN_URL, uriVariables);
 			if (oauth2AccessTokenResponse == null) {
 				return;
 			}

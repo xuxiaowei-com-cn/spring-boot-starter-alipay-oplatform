@@ -111,7 +111,7 @@ public class OAuth2AlipayOplatformWebsiteAuthenticationProvider implements Authe
 		Set<String> requestedScopes = StringUtils.commaDelimitedListToSet(grantAuthenticationToken.getScope());
 
 		OAuth2ClientAuthenticationToken clientPrincipal = OAuth2AuthenticationProviderUtils
-				.getAuthenticatedClientElseThrowInvalidClient(grantAuthenticationToken);
+			.getAuthenticatedClientElseThrowInvalidClient(grantAuthenticationToken);
 		RegisteredClient registeredClient = clientPrincipal.getRegisteredClient();
 
 		// 自定义支付宝 网站应用用户的IP与SessionId
@@ -139,12 +139,12 @@ public class OAuth2AlipayOplatformWebsiteAuthenticationProvider implements Authe
 		}
 
 		AlipayOplatformWebsiteTokenResponse alipayOplatformWebsiteTokenResponse = alipayOplatformWebsiteService
-				.getAccessTokenResponse(appid, code, state, binding, remoteAddress, sessionId);
+			.getAccessTokenResponse(appid, code, state, binding, remoteAddress, sessionId);
 
 		AlipaySystemOauthTokenResponse systemOauthTokenResponse = alipayOplatformWebsiteTokenResponse
-				.getSystemOauthTokenResponse();
+			.getSystemOauthTokenResponse();
 		AlipayUserInfoShareResponse userInfoShareResponse = alipayOplatformWebsiteTokenResponse
-				.getUserInfoShareResponse();
+			.getUserInfoShareResponse();
 
 		String unionId = systemOauthTokenResponse.getUnionId();
 		String accessToken = systemOauthTokenResponse.getAccessToken();
@@ -242,7 +242,7 @@ public class OAuth2AlipayOplatformWebsiteAuthenticationProvider implements Authe
 
 		if (alipayOplatformWebsiteService == null) {
 			alipayOplatformWebsiteService = OAuth2AlipayOplatformWebsiteConfigurerUtils
-					.getAlipayOplatformWebsiteService(builder);
+				.getAlipayOplatformWebsiteService(builder);
 		}
 	}
 
