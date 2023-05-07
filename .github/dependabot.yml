@@ -12,9 +12,11 @@ updates:
       interval: "daily"
     # https://docs.github.com/zh/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore
     ignore:
-      - dependency-name: spring-boot-starter-parent
+      - dependency-name: org.springframework.boot:spring-boot-dependencies
         # spring-boot 3.0 不支持 JDK 8
-        versions: [ "3.x", "3.0.6" ]
-      - dependency-name: spring-security-oauth2-authorization-server
+        versions:
+          - ">= 3"
+      - dependency-name: org.springframework.security:spring-security-oauth2-authorization-server
         # spring-security-oauth2-authorization-server 1.0 不支持 JDK 8
-        versions: [ "1.x" ]
+        versions:
+          - ">= 1"
