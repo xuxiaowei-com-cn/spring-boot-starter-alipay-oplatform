@@ -27,7 +27,7 @@
 
         <!-- https://github.com/alipay/alipay-sdk-java-all -->
         <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
-        <alipay-sdk-java.version>4.38.128.ALL</alipay-sdk-java.version>
+        <alipay-sdk-java.version>4.38.133.ALL</alipay-sdk-java.version>
 
         <!-- OAuth 2.1 依赖 -->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-authorization-server -->
